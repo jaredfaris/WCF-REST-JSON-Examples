@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+  <head>
+    <title>Test Page</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
+    <script type="text/javascript" src="json2.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#testButtonGetOne').click(function () {
+                $.ajax({
+                    url: 'http://localhost/exampleService/GetWithOne/FirstString',
+                    success: function (data) {
+                        alert(data);
+                    }
+                });
+            });
+
+            $('#testButtonGetTwo').click(function () {
+                $.ajax({
+                    url: 'http://localhost/exampleService/GetWithTwo/?input1=FirstString&input2=SecondString',
+                    success: function (data) {
+                        alert(data);
+                    }
+                });
+            });
+
+            $('#testButtonPostZero').click(function () {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://localhost/exampleService/PostWithZero/',
+                    success: function (data) {
+                        alert(data);
+                    },
+                    dataType: 'json'
+                });
+            });
+
+            $('#testButtonPostOnePrim').click(function () {
+                var data1 = {
+                    "input": "This is the primitive (string)",
+                };
+				// We need to turn this object into JSON.  I use the JSON2.js library for this.
+                var json = JSON.stringify(data1);
+
+                $.ajax({
+                    type: 'POST',
+                    data: json,
+                    url: 'http://localhost/exampleService/PostWithOnePrim/',
+                    success: function (data) {
+                        alert(data);
+                    },
+                    contentType: "application/json",
+                    dataType: 'json'
+                });
+            });
+
+			$('#testButtonPostWithComp').click(function () {
+                var data1 = { 
+                    "testInfo": {
+                        "Property1": true,
+                        "Property2": "This is property 2"
+                    }
+                };
+				// We need to turn this object into JSON.  I use the JSON2.js library for this.
+                var json = JSON.stringify(data1);
+
+                $.ajax({
+                    type: 'POST',
+                    data: json,
+                    url: 'http://localhost/exampleService/PostWithCompositeType/',
+                    success: function (data) {
+                        alert(data);
+                    },
+                    contentType: "application/json",
+                    dataType: 'json'
+                });
+            });
+
+            $('#testButtonPostWithComps').click(function () {
+                var data1 = { 
+                    "testInfo": {
+                        "Property1": true,
+                        "Property2": "This is property 2"
+                    }
+                };
+				// We need to turn this object into JSON.  I use the JSON2.js library for this.
+                var json = JSON.stringify(data1);
+
+                $.ajax({
+                    type: 'POST',
+                    data: json,
+                    url: 'http://localhost/exampleService/PostWithComposites/',
+                    success: function (data) {
+                        alert("Property1: " + data.Property1 + "\r\nProperty2: " + data.Property2);
+                    },
+                    contentType: "application/json",
+                    dataType: 'json'
+                });
+            });
+        });
+    </script>
+  </head>
+  <body>
+    <form id="testForm">
+      <input type="button" id="testButtonGetOne" value="Get with one parameter" />
+      <br />
+      <input type="button" id="testButtonGetTwo" value="Get with two parameters" />
+      <br />
+      <input type="button" id="testButtonPostZero" value="Post with no parameters" />
+      <br />
+      <input type="button" id="testButtonPostOnePrim" value="Post with one primative type parameter" />
+      <br />
+      <input type="button" id="testButtonPostWithComp" value="Post with a composite type parameter" />
+      <br />
+      <input type="button" id="testButtonPostWithComps" value="Post with a composite type return" />
+    </form>
+  </body>
+</html>
