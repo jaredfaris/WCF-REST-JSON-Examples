@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfService", "WcfService\WcfService.csproj", "{6AC42CDF-E942-4D2C-8AA2-64179C7768B4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfJsonpService", "WcfJsonpService\WcfJsonpService.csproj", "{53CEF922-50BF-437C-90ED-D935ECEEE173}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +15,10 @@ Global
 		{6AC42CDF-E942-4D2C-8AA2-64179C7768B4}.Debug|x86.Build.0 = Debug|x86
 		{6AC42CDF-E942-4D2C-8AA2-64179C7768B4}.Release|x86.ActiveCfg = Release|x86
 		{6AC42CDF-E942-4D2C-8AA2-64179C7768B4}.Release|x86.Build.0 = Release|x86
+		{53CEF922-50BF-437C-90ED-D935ECEEE173}.Debug|x86.ActiveCfg = Debug|x86
+		{53CEF922-50BF-437C-90ED-D935ECEEE173}.Debug|x86.Build.0 = Debug|x86
+		{53CEF922-50BF-437C-90ED-D935ECEEE173}.Release|x86.ActiveCfg = Release|x86
+		{53CEF922-50BF-437C-90ED-D935ECEEE173}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

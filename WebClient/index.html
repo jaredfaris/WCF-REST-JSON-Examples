@@ -1,11 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html>
-  <head>
+<head>
     <title>Test Page</title>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.5.min.js"></script>
     <script type="text/javascript" src="json2.js"></script>
-
     <script type="text/javascript">
         $(document).ready(function () {
             $('#testButtonGetOne').click(function () {
@@ -99,22 +97,37 @@
                     dataType: 'json'
                 });
             });
+
+            $('#textButtonJsonpGetOne').click(function () {
+                $.ajax({
+                    url: 'http://localhost:8080/exampleJsonpService/GetWithOne/FirstString',
+                    success: function (data) {
+                        alert(data);
+                    },
+                    dataType: 'jsonp'
+                });
+            });
         });
     </script>
-  </head>
-  <body>
+</head>
+<body>
     <form id="testForm">
-      <input type="button" id="testButtonGetOne" value="Get with one parameter" />
-      <br />
-      <input type="button" id="testButtonGetTwo" value="Get with two parameters" />
-      <br />
-      <input type="button" id="testButtonPostZero" value="Post with no parameters" />
-      <br />
-      <input type="button" id="testButtonPostOnePrim" value="Post with one primative type parameter" />
-      <br />
-      <input type="button" id="testButtonPostWithComp" value="Post with a composite type parameter" />
-      <br />
-      <input type="button" id="testButtonPostWithComps" value="Post with a composite type return" />
+    <h2>
+        JSON Examples</h2>
+    <input type="button" id="testButtonGetOne" value="Get with one parameter" />
+    <br />
+    <input type="button" id="testButtonGetTwo" value="Get with two parameters" />
+    <br />
+    <input type="button" id="testButtonPostZero" value="Post with no parameters" />
+    <br />
+    <input type="button" id="testButtonPostOnePrim" value="Post with one primative type parameter" />
+    <br />
+    <input type="button" id="testButtonPostWithComp" value="Post with a composite type parameter" />
+    <br />
+    <input type="button" id="testButtonPostWithComps" value="Post with a composite type return" />
+    <h2>
+        JSONP Example</h2>
+    <input type="button" id="textButtonJsonpGetOne" value="Get with one parameter" />
     </form>
-  </body>
+</body>
 </html>
