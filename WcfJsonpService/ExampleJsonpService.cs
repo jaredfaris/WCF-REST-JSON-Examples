@@ -21,5 +21,10 @@ namespace WcfJsonpService
         {
             return String.Format("The (jsonp) input string was: {0}", input);
         }
+
+        public string GetWithTwo(string input1, string input2)
+        {
+            return String.Format("(jsonp) Input one: {0}, Input two: {1}", input1, input2);
+        }
     }
 }

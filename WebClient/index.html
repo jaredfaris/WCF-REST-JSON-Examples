@@ -107,27 +107,37 @@
                     dataType: 'jsonp'
                 });
             });
+			
+            $('#textButtonJsonpGetTwo').click(function () {
+                $.ajax({
+                    url: 'http://localhost:8080/exampleJsonpService/GetWithTwo/?input1=FirstString&input2=SecondString',
+                    success: function (data) {
+                        alert(data);
+                    },
+					dataType: 'jsonp'
+                });
+            });			
         });
     </script>
 </head>
 <body>
     <form id="testForm">
-    <h2>
-        JSON Examples</h2>
-    <input type="button" id="testButtonGetOne" value="Get with one parameter" />
-    <br />
-    <input type="button" id="testButtonGetTwo" value="Get with two parameters" />
-    <br />
-    <input type="button" id="testButtonPostZero" value="Post with no parameters" />
-    <br />
-    <input type="button" id="testButtonPostOnePrim" value="Post with one primative type parameter" />
-    <br />
-    <input type="button" id="testButtonPostWithComp" value="Post with a composite type parameter" />
-    <br />
-    <input type="button" id="testButtonPostWithComps" value="Post with a composite type return" />
-    <h2>
-        JSONP Example</h2>
-    <input type="button" id="textButtonJsonpGetOne" value="Get with one parameter" />
+		<h2>JSON Examples (accessing a service on the same host)</h2>
+		<input type="button" id="testButtonGetOne" value="Get with one parameter" />
+		<br />
+		<input type="button" id="testButtonGetTwo" value="Get with two parameters" />
+		<br />
+		<input type="button" id="testButtonPostZero" value="Post with no parameters" />
+		<br />
+		<input type="button" id="testButtonPostOnePrim" value="Post with one primative type parameter" />
+		<br />
+		<input type="button" id="testButtonPostWithComp" value="Post with a composite type parameter" />
+		<br />
+		<input type="button" id="testButtonPostWithComps" value="Post with a composite type return" />
+		<h2>JSONP Examples (accessing a service on a different host)</h2>
+		<input type="button" id="textButtonJsonpGetOne" value="Get with one parameter" />
+		<br />
+		<input type="button" id="textButtonJsonpGetTwo" value="Get with two parameters" />
     </form>
 </body>
 </html>

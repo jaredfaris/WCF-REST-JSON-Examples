@@ -23,5 +23,10 @@ namespace WcfJsonpService
         [WebGet(UriTemplate = "GetWithOne/{input}",
             ResponseFormat = WebMessageFormat.Json)]
         string GetWithOne(string input);
+
+        [OperationContract]
+        [WebGet(UriTemplate = "GetWithTwo/?input1={input1}&input2={input2}",
+            ResponseFormat = WebMessageFormat.Json)]
+        string GetWithTwo(string input1, string input2);
     }
 }
